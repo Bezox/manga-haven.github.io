@@ -1,0 +1,1026 @@
+/* ==================== СТРАНИЦА ТОВАРА ==================== */
+
+/* Хлебные крошки */
+.breadcrumbs-section {
+    background: var(--white);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(247, 183, 204, 0.2);
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.breadcrumb-link {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.breadcrumb-link:hover {
+    color: var(--cherry-highlight);
+}
+
+.breadcrumb-separator {
+    color: var(--sakura-pink);
+    font-size: 0.8rem;
+}
+
+.breadcrumb-current {
+    color: var(--ink-black);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Основной контент товара */
+.product-main {
+    padding: 3rem 0;
+    background: var(--white);
+}
+
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+}
+
+/* Галерея изображений */
+.product-gallery {
+    position: sticky;
+    top: 120px;
+}
+
+.gallery-main {
+    margin-bottom: 1.5rem;
+}
+
+.main-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--pale-lavender);
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.image-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--gradient-pink);
+    box-shadow: var(--shadow-soft);
+}
+
+.zoom-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-black);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    backdrop-filter: blur(10px);
+}
+
+.zoom-btn:hover {
+    background: var(--white);
+    transform: scale(1.1);
+}
+
+.gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.thumb-item {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition-fast);
+    background: var(--pale-lavender);
+    aspect-ratio: 2/3;
+}
+
+.thumb-item.active {
+    border-color: var(--sakura-pink);
+}
+
+.thumb-item:hover {
+    border-color: var(--blush-rose);
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Информация о товаре */
+.product-info {
+    padding: 1rem 0;
+}
+
+.product-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(247, 183, 204, 0.2);
+}
+
+.product-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--ink-black);
+    line-height: 1.2;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.rating-count {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.product-sku {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.product-sku span {
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+/* Цены */
+.product-pricing {
+    margin-bottom: 2rem;
+}
+
+.price-current {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--blush-rose);
+    margin-bottom: 0.5rem;
+}
+
+.price-original {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.original-price {
+    font-size: 1.2rem;
+    color: var(--soft-graphite);
+    text-decoration: line-through;
+}
+
+.discount-badge {
+    background: var(--pastel-mint);
+    color: var(--ink-black);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Описание */
+.product-description {
+    margin-bottom: 2rem;
+}
+
+.product-description p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--soft-graphite);
+}
+
+.product-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--soft-graphite);
+}
+
+.feature-item i {
+    color: var(--pastel-mint);
+    font-size: 1rem;
+}
+
+/* Опции товара */
+.product-options {
+    margin-bottom: 2rem;
+}
+
+.option-group {
+    margin-bottom: 1.5rem;
+}
+
+.option-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+.option-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.option-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--pale-lavender);
+    background: var(--white);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-weight: 500;
+    color: var(--soft-graphite);
+}
+
+.option-btn.active,
+.option-btn:hover {
+    border-color: var(--sakura-pink);
+    background: var(--sakura-pink);
+    color: var(--white);
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 2px solid var(--pale-lavender);
+    border-radius: 12px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.quantity-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: var(--white);
+    color: var(--soft-graphite);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover {
+    background: var(--pale-lavender);
+}
+
+#quantity-input {
+    width: 60px;
+    height: 45px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    color: var(--ink-black);
+    background: var(--white);
+    
+}
+
+#quantity-input::-webkit-outer-spin-button,
+#quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Действия с товаром */
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.add-to-cart-btn,
+.wishlist-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+}
+
+.wishlist-btn {
+    background: var(--white);
+    border: 2px solid var(--soft-lilac);
+    color: var(--ink-black);
+}
+
+.wishlist-btn:hover {
+    background: var(--soft-lilac);
+    border-color: var(--soft-lilac);
+}
+
+/* Информация о доставке */
+.product-delivery {
+    background: var(--misty-pink);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(247, 183, 204, 0.3);
+}
+
+.delivery-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.delivery-item:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-item i {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-lavender);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.delivery-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-info strong {
+    color: var(--ink-black);
+    font-weight: 600;
+}
+
+.delivery-info span {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+/* Детальная информация */
+.product-details-section {
+    background: var(--white);
+    padding: 4rem 0;
+}
+
+.details-tabs {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.tabs-header {
+    display: flex;
+    background: var(--pale-lavender);
+    border-bottom: 1px solid rgba(201, 183, 245, 0.3);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 1.2rem 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--soft-graphite);
+    transition: var(--transition-fast);
+    position: relative;
+    flex: 1;
+    min-width: 150px;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-pink);
+    transition: var(--transition-smooth);
+}
+
+.tab-btn.active {
+    color: var(--cherry-highlight);
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+.tab-btn:hover {
+    color: var(--cherry-highlight);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.tabs-content {
+    padding: 3rem;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Описание */
+.description-content h3 {
+    margin-bottom: 1.5rem;
+    color: var(--ink-black);
+}
+
+.description-content h4 {
+    margin: 2rem 0 1rem;
+    color: var(--ink-black);
+}
+
+.description-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.description-content li {
+    margin-bottom: 0.5rem;
+    color: var(--soft-graphite);
+    line-height: 1.6;
+}
+
+.story-highlights {
+    margin-top: 2rem;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.highlight-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--misty-pink);
+    border-radius: 16px;
+    border: 1px solid rgba(247, 183, 204, 0.3);
+}
+
+.highlight-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-peach);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.highlight-item p {
+    color: var(--soft-graphite);
+    font-weight: 500;
+}
+
+/* Характеристики */
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(247, 183, 204, 0.2);
+}
+
+.spec-label {
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+.spec-value {
+    color: var(--soft-graphite);
+}
+
+/* Отзывы */
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.reviews-summary {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.average-rating {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--misty-pink);
+    border-radius: 16px;
+    min-width: 150px;
+}
+
+.rating-big {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--blush-rose);
+    line-height: 1;
+}
+
+.stars-big {
+    color: var(--warm-peach);
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.rating-count {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.rating-bars {
+    flex: 1;
+    min-width: 250px;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.rating-bar span:first-child {
+    width: 70px;
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.rating-bar span:last-child {
+    width: 40px;
+    text-align: right;
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.bar {
+    flex: 1;
+    height: 8px;
+    background: var(--pale-lavender);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--gradient-peach);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+.write-review-btn {
+    align-self: flex-start;
+}
+
+.reviews-list {
+    margin-bottom: 2rem;
+}
+
+.review-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(247, 183, 204, 0.2);
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-lavender);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.2rem;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--ink-black);
+}
+
+.review-date {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.review-content h4 {
+    margin-bottom: 0.8rem;
+    color: var(--ink-black);
+}
+
+.review-content p {
+    color: var(--soft-graphite);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.review-helpful {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.review-helpful span {
+    color: var(--soft-graphite);
+    font-size: 0.9rem;
+}
+
+.helpful-btn {
+    background: none;
+    border: 1px solid var(--pale-lavender);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    color: var(--soft-graphite);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+}
+
+.helpful-btn:hover {
+    background: var(--pale-lavender);
+    color: var(--ink-black);
+}
+
+.reviews-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--pale-lavender);
+    background: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    color: var(--soft-graphite);
+}
+
+.pagination-btn.active,
+.pagination-btn:hover {
+    background: var(--sakura-pink);
+    border-color: var(--sakura-pink);
+    color: var(--white);
+}
+
+/* Доставка */
+.shipping-content h3 {
+    margin-bottom: 1.5rem;
+    color: var(--ink-black);
+}
+
+.shipping-methods {
+    margin-bottom: 2rem;
+}
+
+.shipping-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--misty-pink);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(247, 183, 204, 0.3);
+}
+
+.method-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-lavender);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.method-info h4 {
+    margin-bottom: 0.5rem;
+    color: var(--ink-black);
+}
+
+.method-info p {
+    color: var(--soft-graphite);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.method-time {
+    color: var(--blush-rose);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.payment-methods-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--misty-pink);
+    border-radius: 12px;
+    border: 1px solid rgba(247, 183, 204, 0.3);
+}
+
+.payment-method i {
+    color: var(--sakura-pink);
+    font-size: 1.2rem;
+    width: 24px;
+}
+
+.payment-method span {
+    color: var(--soft-graphite);
+    font-weight: 500;
+}
+
+/* Похожие товары */
+.related-products-section {
+    background: var(--misty-pink);
+    padding: 4rem 0;
+}
+
+/* Модальное окно изображения */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.image-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--sakura-pink);
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* ==================== АДАПТИВНОСТЬ СТРАНИЦЫ ТОВАРА ==================== */
+
+@media (max-width: 1024px) {
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .product-gallery {
+        position: static;
+    }
+    
+    .gallery-thumbs {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .tabs-content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .add-to-cart-btn,
+    .wishlist-btn {
+        min-width: 100%;
+    }
+    
+    .tabs-header {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        min-width: 100%;
+        text-align: left;
+    }
+    
+    .reviews-header {
+        flex-direction: column;
+    }
+    
+    .write-review-btn {
+        align-self: stretch;
+    }
+    
+    .reviews-summary {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+    
+    .average-rating {
+        width: 100%;
+    }
+    
+    .rating-bars {
+        width: 100%;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .review-helpful {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-thumbs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .option-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .option-btn {
+        width: 100%;
+    }
+    
+    .tabs-content {
+        padding: 1.5rem;
+    }
+    
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-methods-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+    }
+}

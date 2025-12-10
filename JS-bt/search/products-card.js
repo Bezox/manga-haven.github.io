@@ -13,8 +13,39 @@ class ProductManager {
         this.renderAllProducts();
     }
 
+    // Функция для получения корректного пути (абсолютного от корня)
+    getProductPath(product) {
+        if (!product || !product.path) {
+            return `/product.html?id=${product.id}`;
+        }
+        
+        let path = product.path;
+        
+        // Убедимся, что путь начинается с /
+        if (!path.startsWith('/')) {
+            path = '/' + path;
+        }
+        
+        // Если в пути уже есть cards/, не добавляем его
+        if (!path.includes('cards/') && !path.includes('cards/')) {
+            path = '/cards' + path;
+        }
+        
+        // Удаляем возможные дублирования
+        if (path.includes('//')) {
+            path = path.replace('//', '/');
+        }
+        
+        // Удаляем дублирование cards/cards/
+        if (path.includes('/cards/cards/')) {
+            path = path.replace('/cards/cards/', '/cards/');
+        }
+        
+        return path;
+    }
+
     // Загрузка товаров из JSON
-    
+  // В обоих файлах добавьте после loadProducts():
 async loadProducts() {
     try {
         console.log('📥 Загружаем товары из JSON...');
@@ -196,8 +227,8 @@ async loadProducts() {
             <div class="price">${product.price} грн</div>
         `;
         
-       
-        const productPath = product.path || `product.html?id=${product.id}`;
+        // Используем функцию getProductPath для получения корректного пути
+        const productPath = this.getProductPath(product);
         
         return `
             <div class="search-result-item" data-id="${product.id}">
@@ -214,17 +245,17 @@ async loadProducts() {
                         <span class="value">${product.rating}</span>
                     </div>
                     <div class="actions">
-    <button class="btn cart-btn" 
-            data-id="${product.id}"
-            data-name="${product.name}"
-            data-price="${product.price}"
-            data-image="${product.image}">
-        <i class="fas fa-cart-plus"></i> В кошик
-    </button>
-    <a href="${productPath}" class="btn view-btn">
-        <i class="fas fa-eye"></i> Детальніше
-    </a>
-</div>
+                        <button class="btn cart-btn" 
+                                data-id="${product.id}"
+                                data-name="${product.name}"
+                                data-price="${product.price}"
+                                data-image="${product.image}">
+                            <i class="fas fa-cart-plus"></i> В кошик
+                        </button>
+                        <a href="${productPath}" class="btn view-btn">
+                            <i class="fas fa-eye"></i> Детальніше
+                        </a>
+                    </div>
                 </div>
             </div>
         `;
@@ -342,8 +373,8 @@ async loadProducts() {
             <div class="product-price">${product.price} грн</div>
         `;
         
-        
-        const productPath = product.path || `product.html?id=${product.id}`;
+        // Используем функцию getProductPath для получения корректного пути
+        const productPath = this.getProductPath(product);
         
         return `
             <div class="product-card ${extraClass}">
@@ -464,7 +495,7 @@ async loadProducts() {
                 id: 1,
                 name: "One Piece Том 102",
                 price: 350,
-                path: "cards/OP/One_Piece.html",
+                path: "OP/One_Piece.html",
                 image: "https://via.placeholder.com/250x350/F5F1FF/5A5A5A?text=One+Piece+Vol.102",
                 status: "new",
                 rating: 4.7
@@ -473,7 +504,7 @@ async loadProducts() {
                 id: 2,
                 name: "Jujutsu Kaisen Том 22",
                 price: 320,
-                path: "cards/JK/JK.html",
+                path: "JK/JK.html",
                 image: "https://via.placeholder.com/250x350/F5F1FF/5A5A5A?text=Jujutsu+Kaisen+Vol.22",
                 status: "new",
                 rating: 5.0
@@ -496,6 +527,7 @@ function initProducts() {
 }
 
 // Автоматическая инициализация
+// Заменяем:
 document.addEventListener('DOMContentLoaded', function() {
     console.log('📄 DOM загружен, инициализируем менеджер товаров...');
     
@@ -508,7 +540,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
 });
 
-// Экспорт для использования в других модулях
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { ProductManager, initProducts };
-}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('📄 DOM загружен, инициализируем менеджер товаров...');
+    
+    // Проверяем, не инициализирован ли уже менеджер
+    if (window.ProductManager) {
+        console.log('✅ Менеджер товаров уже инициализирован');
+        return;
+    }
+    
+    // Задержка для гарантии полной загрузки DOM
+    setTimeout(() => {
+        try {
+            window.ProductManager = initProducts();
+            console.log('✅ Менеджер товаров успешно инициализирован');
+            
+            // Дебаг информация
+            if (window.ProductManager && window.ProductManager.products) {
+                console.log(`📦 Загружено ${window.ProductManager.products.length} товаров`);
+                
+                // Проверяем работу поиска
+                const searchInput = document.querySelector('.search-bar input');
+                if (searchInput) {
+                    console.log('🔍 Поле поиска найдено');
+                    
+                    // Быстрая тестовая проверка
+                    setTimeout(() => {
+                        console.log('Тест поиска: введите текст в поиск и нажмите Enter');
+                    }, 1000);
+                }
+            }
+        } catch (error) {
+            console.error('❌ Ошибка инициализации менеджера товаров:', error);
+        }
+    }, 100);
+});
