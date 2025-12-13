@@ -16,7 +16,7 @@
       "status": "new",
       "stock": 25,
       "slug": "one-piece-102",
-      "path": "cards/OP/One_Piece.html"
+      "path": "./OP/One_Piece.html"
     },
     {
       "id": 2,
