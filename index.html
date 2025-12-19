@@ -1,485 +1,496 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Вход на сайт</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* CSS переменные для цветов */
-        :root {
-            --sakura-pink: #F7B7CC;
-            --blush-rose: #E86A92;
-            --pastel-mint: #AEE6D8;
-            --soft-lilac: #C9B7F5;
-            --warm-peach: #FFA77A;
-            --white: #FFFFFF;
-            --misty-pink: #FFF7FA;
-            --pale-lavender: #F5F1FF;
-            --ink-black: #262626;
-            --soft-graphite: #5A5A5A;
-            --cherry-highlight: #D94A73;
-            
-            /* Градиенты */
-            --gradient-pink: linear-gradient(135deg, #F7B7CC 0%, #E86A92 100%);
-            --gradient-lavender: linear-gradient(135deg, #C9B7F5 0%, #AEE6D8 100%);
-            --gradient-peach: linear-gradient(135deg, #FFA77A 0%, #F7B7CC 100%);
-            
-            /* Тени */
-            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.15);
-            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.2);
-            
-            /* Анимации */
-            --transition-fast: 0.3s ease;
-            --transition-smooth: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
+      /* CSS переменные для цветов */
+      :root {
+        --sakura-pink: #f7b7cc;
+        --blush-rose: #e86a92;
+        --pastel-mint: #aee6d8;
+        --soft-lilac: #c9b7f5;
+        --warm-peach: #ffa77a;
+        --white: #ffffff;
+        --misty-pink: #fff7fa;
+        --pale-lavender: #f5f1ff;
+        --ink-black: #262626;
+        --soft-graphite: #5a5a5a;
+        --cherry-highlight: #d94a73;
 
-        /* Базовые стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Градиенты */
+        --gradient-pink: linear-gradient(135deg, #f7b7cc 0%, #e86a92 100%);
+        --gradient-lavender: linear-gradient(135deg, #c9b7f5 0%, #aee6d8 100%);
+        --gradient-peach: linear-gradient(135deg, #ffa77a 0%, #f7b7cc 100%);
 
-        html {
-            font-size: 16px;
-            height: 100%;
-        }
+        /* Тени */
+        --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+        --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.15);
+        --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.2);
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--soft-graphite);
-            background: linear-gradient(135deg, var(--misty-pink) 0%, var(--pale-lavender) 100%);
-            background-attachment: fixed;
-            line-height: 1.7;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+        /* Анимации */
+        --transition-fast: 0.3s ease;
+        --transition-smooth: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
 
-        /* Анимированный фон */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><circle fill="%23E86A92" cx="500" cy="500" r="200"/></svg>'),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.02"><polygon fill="%23F7B7CC" points="1000,1000 0,1000 0,0 500,500"/></svg>'),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.025"><rect fill="%23C9B7F5" x="400" y="400" width="200" height="200"/></svg>');
-            animation: float 30s infinite linear;
-        }
+      /* Базовые стили */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-1000px) rotate(360deg); }
-        }
+      html {
+        font-size: 16px;
+        height: 100%;
+      }
 
-        /* Главная кнопка */
-        .login-button {
-            position: relative;
-            z-index: 100;
-            animation: fadeIn 1.5s ease-out;
-        }
+      body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--soft-graphite);
+        background: linear-gradient(135deg, var(--misty-pink) 0%, var(--pale-lavender) 100%);
+        background-attachment: fixed;
+        line-height: 1.7;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
+      /* Анимированный фон */
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><circle fill="%23E86A92" cx="500" cy="500" r="200"/></svg>'),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.02"><polygon fill="%23F7B7CC" points="1000,1000 0,1000 0,0 500,500"/></svg>'),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.025"><rect fill="%23C9B7F5" x="400" y="400" width="200" height="200"/></svg>');
+        animation: float 30s infinite linear;
+      }
 
+      @keyframes float {
+        0% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-1000px) rotate(360deg);
+        }
+      }
+
+      /* Главная кнопка */
+      .login-button {
+        position: relative;
+        z-index: 100;
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .btn-enter {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1.8rem 4rem;
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: var(--gradient-pink);
+        color: var(--white);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: var(--transition-bounce);
+        box-shadow: var(--shadow-strong), 0 0 0 15px rgba(255, 255, 255, 0.1), 0 0 0 30px rgba(255, 255, 255, 0.05);
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        min-width: 350px;
+        text-align: center;
+      }
+
+      .btn-enter::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: var(--transition-smooth);
+      }
+
+      .btn-enter:hover::before {
+        left: 100%;
+      }
+
+      .btn-enter:hover {
+        transform: translateY(-10px) scale(1.08);
+        box-shadow: var(--shadow-hover), 0 0 0 20px rgba(255, 255, 255, 0.15), 0 0 0 40px rgba(255, 255, 255, 0.08);
+      }
+
+      .btn-enter:active {
+        transform: translateY(-5px) scale(1.05);
+        transition: var(--transition-fast);
+      }
+
+      .btn-enter i {
+        font-size: 2.5rem;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* Плавающие элементы для красоты */
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        background: var(--gradient-lavender);
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: floatElement 20s infinite linear;
+      }
+
+      .floating-element:nth-child(1) {
+        width: 150px;
+        height: 150px;
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
+
+      .floating-element:nth-child(2) {
+        width: 100px;
+        height: 100px;
+        top: 70%;
+        left: 10%;
+        background: var(--gradient-peach);
+        animation-delay: -5s;
+      }
+
+      .floating-element:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        right: 15%;
+        animation-delay: -10s;
+      }
+
+      .floating-element:nth-child(4) {
+        width: 120px;
+        height: 120px;
+        bottom: 15%;
+        right: 5%;
+        background: var(--gradient-pink);
+        animation-delay: -15s;
+      }
+
+      @keyframes floatElement {
+        0% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 0.1;
+        }
+        25% {
+          opacity: 0.15;
+        }
+        50% {
+          transform: translateY(-50px) rotate(180deg);
+          opacity: 0.2;
+        }
+        75% {
+          opacity: 0.15;
+        }
+        100% {
+          transform: translateY(0px) rotate(360deg);
+          opacity: 0.1;
+        }
+      }
+
+      /* Индикатор загрузки при клике */
+      .loading {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .loading.active {
+        display: flex;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .spinner {
+        width: 100px;
+        height: 100px;
+        border: 10px solid rgba(247, 183, 204, 0.2);
+        border-top: 10px solid var(--blush-rose);
+        border-right: 10px solid var(--soft-lilac);
+        border-bottom: 10px solid var(--pastel-mint);
+        border-radius: 50%;
+        animation: spin 1.5s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        font-size: 1.8rem;
+        color: var(--blush-rose);
+        font-weight: 700;
+        animation: pulse 2s infinite;
+        text-align: center;
+        max-width: 300px;
+      }
+
+      .loading-subtext {
+        font-size: 1rem;
+        color: var(--soft-graphite);
+        opacity: 0.8;
+        margin-top: -1rem;
+      }
+
+      /* Адаптивность */
+      @media (max-width: 768px) {
         .btn-enter {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 1.8rem 4rem;
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: var(--gradient-pink);
-            color: var(--white);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: var(--transition-bounce);
-            box-shadow: 
-                var(--shadow-strong),
-                0 0 0 15px rgba(255, 255, 255, 0.1),
-                0 0 0 30px rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            min-width: 350px;
-            text-align: center;
-        }
-
-        .btn-enter::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: var(--transition-smooth);
-        }
-
-        .btn-enter:hover::before {
-            left: 100%;
-        }
-
-        .btn-enter:hover {
-            transform: translateY(-10px) scale(1.08);
-            box-shadow: 
-                var(--shadow-hover),
-                0 0 0 20px rgba(255, 255, 255, 0.15),
-                0 0 0 40px rgba(255, 255, 255, 0.08);
-        }
-
-        .btn-enter:active {
-            transform: translateY(-5px) scale(1.05);
-            transition: var(--transition-fast);
+          padding: 1.5rem 3rem;
+          font-size: 1.8rem;
+          min-width: 300px;
+          gap: 1rem;
         }
 
         .btn-enter i {
-            font-size: 2.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* Плавающие элементы для красоты */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: var(--gradient-lavender);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: floatElement 20s infinite linear;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 150px;
-            height: 150px;
-            top: 10%;
-            left: 5%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            top: 70%;
-            left: 10%;
-            background: var(--gradient-peach);
-            animation-delay: -5s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            right: 15%;
-            animation-delay: -10s;
-        }
-
-        .floating-element:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            bottom: 15%;
-            right: 5%;
-            background: var(--gradient-pink);
-            animation-delay: -15s;
-        }
-
-        @keyframes floatElement {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.1;
-            }
-            25% {
-                opacity: 0.15;
-            }
-            50% {
-                transform: translateY(-50px) rotate(180deg);
-                opacity: 0.2;
-            }
-            75% {
-                opacity: 0.15;
-            }
-            100% {
-                transform: translateY(0px) rotate(360deg);
-                opacity: 0.1;
-            }
-        }
-
-        /* Индикатор загрузки при клике */
-        .loading {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .loading.active {
-            display: flex;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .spinner {
-            width: 100px;
-            height: 100px;
-            border: 10px solid rgba(247, 183, 204, 0.2);
-            border-top: 10px solid var(--blush-rose);
-            border-right: 10px solid var(--soft-lilac);
-            border-bottom: 10px solid var(--pastel-mint);
-            border-radius: 50%;
-            animation: spin 1.5s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+          font-size: 2rem;
         }
 
         .loading-text {
-            font-size: 1.8rem;
-            color: var(--blush-rose);
-            font-weight: 700;
-            animation: pulse 2s infinite;
-            text-align: center;
-            max-width: 300px;
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .btn-enter {
+          padding: 1.2rem 2.5rem;
+          font-size: 1.5rem;
+          min-width: 250px;
+          gap: 0.8rem;
         }
 
-        .loading-subtext {
-            font-size: 1rem;
-            color: var(--soft-graphite);
-            opacity: 0.8;
-            margin-top: -1rem;
+        .btn-enter i {
+          font-size: 1.8rem;
         }
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .btn-enter {
-                padding: 1.5rem 3rem;
-                font-size: 1.8rem;
-                min-width: 300px;
-                gap: 1rem;
-            }
-            
-            .btn-enter i {
-                font-size: 2rem;
-            }
-            
-            .loading-text {
-                font-size: 1.5rem;
-            }
+        .floating-element:nth-child(1),
+        .floating-element:nth-child(2),
+        .floating-element:nth-child(3),
+        .floating-element:nth-child(4) {
+          display: none;
         }
 
-        @media (max-width: 480px) {
-            .btn-enter {
-                padding: 1.2rem 2.5rem;
-                font-size: 1.5rem;
-                min-width: 250px;
-                gap: 0.8rem;
-            }
-            
-            .btn-enter i {
-                font-size: 1.8rem;
-            }
-            
-            .floating-element:nth-child(1),
-            .floating-element:nth-child(2),
-            .floating-element:nth-child(3),
-            .floating-element:nth-child(4) {
-                display: none;
-            }
-            
-            .loading-text {
-                font-size: 1.2rem;
-            }
+        .loading-text {
+          font-size: 1.2rem;
         }
+      }
 
-        /* Эффект при клике */
-        .click-effect {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: var(--gradient-pink);
-            border-radius: 50%;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 99;
-            animation: ripple 0.6s ease-out;
-        }
+      /* Эффект при клике */
+      .click-effect {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: var(--gradient-pink);
+        border-radius: 50%;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 99;
+        animation: ripple 0.6s ease-out;
+      }
 
-        @keyframes ripple {
-            0% {
-                transform: scale(0.1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(3);
-                opacity: 0;
-            }
+      @keyframes ripple {
+        0% {
+          transform: scale(0.1);
+          opacity: 0.8;
         }
+        100% {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
     </style>
-</head>
-<body>
-    <!-- Плавающие элементы фона -->
+  </head>
+  <body>
     <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
     </div>
 
-    <!-- Главная кнопка -->
     <div class="login-button">
-        <button class="btn-enter" id="loginBtn">
-            <i class="fas fa-sign-in-alt"></i>
-            Войти на сайт
-        </button>
+      <button class="btn-enter" id="loginBtn">
+        <i class="fas fa-sign-in-alt"></i>
+        Войти на сайт
+      </button>
     </div>
 
-    <!-- Индикатор загрузки -->
     <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">Выполняется вход...</div>
-        <div class="loading-subtext">Перенаправление на главную страницу</div>
+      <div class="spinner"></div>
+      <div class="loading-text">Выполняется вход...</div>
+      <div class="loading-subtext">Перенаправление на главную страницу</div>
     </div>
 
     <script>
-        // Основная функция входа
-        document.getElementById('loginBtn').addEventListener('click', function(e) {
-            const btn = e.currentTarget;
-            const loading = document.getElementById('loading');
-            
-            // Создаем эффект клика
-            const clickEffect = document.createElement('div');
-            clickEffect.className = 'click-effect';
-            clickEffect.style.left = (e.clientX - 50) + 'px';
-            clickEffect.style.top = (e.clientY - 50) + 'px';
-            document.body.appendChild(clickEffect);
-            
-            // Удаляем эффект после анимации
+      // Основная функция входа
+      document.getElementById('loginBtn').addEventListener('click', function (e) {
+        const btn = e.currentTarget;
+        const loading = document.getElementById('loading');
+
+        // Создаем эффект клика
+        const clickEffect = document.createElement('div');
+        clickEffect.className = 'click-effect';
+        clickEffect.style.left = e.clientX - 50 + 'px';
+        clickEffect.style.top = e.clientY - 50 + 'px';
+        document.body.appendChild(clickEffect);
+
+        // Удаляем эффект после анимации
+        setTimeout(() => {
+          clickEffect.remove();
+        }, 600);
+
+        // Анимация кнопки
+        btn.style.transform = 'scale(0.95)';
+        btn.style.boxShadow = 'var(--shadow-soft)';
+
+        setTimeout(() => {
+          btn.style.transform = '';
+          btn.style.boxShadow = '';
+        }, 200);
+
+        // Показываем индикатор загрузки
+        setTimeout(() => {
+          loading.classList.add('active');
+          document.body.style.overflow = 'hidden';
+
+          // Меняем текст кнопки
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Вход выполнен';
+          btn.style.background = 'var(--gradient-lavender)';
+          btn.style.color = 'var(--ink-black)';
+          btn.style.cursor = 'default';
+          btn.disabled = true;
+        }, 300);
+
+        // Имитация входа на сайт (2 секунды)
+        setTimeout(() => {
+          // ПЕРЕНАПРАВЛЕНИЕ НА main/index.html
+          window.location.href = 'main/index.html';
+        }, 2000);
+      });
+
+      // Добавляем эффект при наведении на всю страницу
+      document.addEventListener('mousemove', function (e) {
+        const btn = document.getElementById('loginBtn');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        // Легкий параллакс-эффект для кнопки
+        btn.style.transform = `translate(${x * 10 - 5}px, ${y * 10 - 5}px)`;
+      });
+
+      // Сбрасываем позицию кнопки когда мышь покидает окно
+      document.addEventListener('mouseleave', function () {
+        const btn = document.getElementById('loginBtn');
+        btn.style.transform = '';
+      });
+
+      // Эффект при загрузке страницы
+      window.addEventListener('load', function () {
+        const btn = document.getElementById('loginBtn');
+
+        // Случайное мерцание кнопки
+        setInterval(() => {
+          if (Math.random() > 0.7) {
+            btn.style.boxShadow =
+              'var(--shadow-strong), 0 0 0 15px rgba(255, 255, 255, 0.1), 0 0 0 30px rgba(255, 255, 255, 0.05), 0 0 30px rgba(232, 106, 146, 0.5)';
+
             setTimeout(() => {
-                clickEffect.remove();
-            }, 600);
-            
-            // Анимация кнопки
-            btn.style.transform = 'scale(0.95)';
-            btn.style.boxShadow = 'var(--shadow-soft)';
-            
-            setTimeout(() => {
-                btn.style.transform = '';
-                btn.style.boxShadow = '';
-            }, 200);
-            
-            // Показываем индикатор загрузки
-            setTimeout(() => {
-                loading.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                
-                // Меняем текст кнопки
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Вход выполнен';
-                btn.style.background = 'var(--gradient-lavender)';
-                btn.style.color = 'var(--ink-black)';
-                btn.style.cursor = 'default';
-                btn.disabled = true;
+              btn.style.boxShadow =
+                'var(--shadow-strong), 0 0 0 15px rgba(255, 255, 255, 0.1), 0 0 0 30px rgba(255, 255, 255, 0.05)';
             }, 300);
-            
-            // Имитация входа на сайт (2 секунды)
-            setTimeout(() => {
-                // ПЕРЕНАПРАВЛЕНИЕ НА main/index.html
-                window.location.href = 'main/index.html';
-                
-            }, 2000);
-        });
-        
-        // Добавляем эффект при наведении на всю страницу
-        document.addEventListener('mousemove', function(e) {
-            const btn = document.getElementById('loginBtn');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            // Легкий параллакс-эффект для кнопки
-            btn.style.transform = `translate(${x * 10 - 5}px, ${y * 10 - 5}px)`;
-        });
-        
-        // Сбрасываем позицию кнопки когда мышь покидает окно
-        document.addEventListener('mouseleave', function() {
-            const btn = document.getElementById('loginBtn');
-            btn.style.transform = '';
-        });
-        
-        // Эффект при загрузке страницы
-        window.addEventListener('load', function() {
-            const btn = document.getElementById('loginBtn');
-            
-            // Случайное мерцание кнопки
-            setInterval(() => {
-                if (Math.random() > 0.7) {
-                    btn.style.boxShadow = 
-                        'var(--shadow-strong), 0 0 0 15px rgba(255, 255, 255, 0.1), 0 0 0 30px rgba(255, 255, 255, 0.05), 0 0 30px rgba(232, 106, 146, 0.5)';
-                    
-                    setTimeout(() => {
-                        btn.style.boxShadow = 
-                            'var(--shadow-strong), 0 0 0 15px rgba(255, 255, 255, 0.1), 0 0 0 30px rgba(255, 255, 255, 0.05)';
-                    }, 300);
-                }
-            }, 2000);
-        });
-        
-        // Поддержка клавиатуры (Enter для входа)
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                document.getElementById('loginBtn').click();
-            }
-        });
-        
-        // Проверяем, есть ли уже сохраненный вход
-        window.addEventListener('load', function() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            
-            if (isLoggedIn === 'true') {
-                // Если пользователь уже вошел, сразу перенаправляем
-                setTimeout(() => {
-                    window.location.href = 'main/index.html';
-                }, 1000);
-            }
-        });
+          }
+        }, 2000);
+      });
+
+      // Поддержка клавиатуры (Enter для входа)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          document.getElementById('loginBtn').click();
+        }
+      });
+
+      // Проверяем, есть ли уже сохраненный вход
+      window.addEventListener('load', function () {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+        if (isLoggedIn === 'true') {
+          // Если пользователь уже вошел, сразу перенаправляем
+          setTimeout(() => {
+            window.location.href = 'main/index.html';
+          }, 1000);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
