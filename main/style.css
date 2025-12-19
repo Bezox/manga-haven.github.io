@@ -1006,7 +1006,6 @@ section {
     gap: 1rem;
     flex-wrap: wrap;
 }
-
 .social-links a {
     width: clamp(40px, 8vw, 45px);
     height: clamp(40px, 8vw, 45px);
